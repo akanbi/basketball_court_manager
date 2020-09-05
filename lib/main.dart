@@ -29,44 +29,12 @@ class BasketballCourtManagerHome extends StatelessWidget {
         title: Text(title),
       ),
       body: SafeArea(
-          child:
-          Container(height: double.infinity, width: double.infinity,
-            child:
-            GridView.count(
-              crossAxisCount: 2,
-              children: [
-                ListView(
-                  children: [
-                    ScoreboardWidget("70"),
-                  ],
-                ),
-                ListView(
-                  children: [
-                    ScoreboardWidget("99")
-                  ],
-                )
-              ],
-            ),
-          )
-      ),
-    );
+          child: Row(
+            children: [
+              ScoreboardWidget("70"),
+              ScoreboardWidget("99")
+            ],
+          ),
+    ));
   }
-
 }
-
-// class MyHomePage extends StatefulWidget {
-//   MyHomePage({Key key, this.title}) : super(key: key);
-//   final String title;
-//
-//   @override
-//   _MyHomePageState createState() => _MyHomePageState();
-// }
-//
-// class _MyHomePageState extends State<MyHomePage> {
-//   int _counter = 0;
-//
-//   void _incrementCounter() {
-//     setState(() {
-//       _counter++;
-//     });
-//   }
