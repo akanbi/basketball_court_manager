@@ -35,6 +35,7 @@ class BasketballCourtManagerHome extends StatelessWidget {
               Expanded(child: ScoreboardWidget("99"))
             ],
           ),
-        ));
+        )
+    );
   }
 }

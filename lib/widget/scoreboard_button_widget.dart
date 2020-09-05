@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ScoreboardButtonWidget extends StatelessWidget {
@@ -8,17 +7,16 @@ class ScoreboardButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-      RaisedButton.icon(
+    return ButtonTheme(
+      minWidth: 200,
+      child: RaisedButton.icon(
         elevation: 4.0,
         icon: Icon(Icons.score),
         color: Theme.of(context).primaryColor,
         onPressed: () {},
-        label: Text(
-            buttonText,
-            style: TextStyle(
-            color: Colors.white, fontSize: 12.0)
-        ),
+        label: Text(buttonText,
+            style: TextStyle(color: Colors.white, fontSize: 12.0)),
+      ),
     );
   }
 }
