@@ -25,16 +25,16 @@ class BasketballCourtManagerHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: SafeArea(
+        appBar: AppBar(
+          title: Text(title),
+        ),
+        body: SafeArea(
           child: Row(
             children: [
-              ScoreboardWidget("70"),
-              ScoreboardWidget("99")
+              Expanded(child: ScoreboardWidget("70")),
+              Expanded(child: ScoreboardWidget("99"))
             ],
           ),
-    ));
+        ));
   }
 }

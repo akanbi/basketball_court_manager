@@ -10,7 +10,6 @@ class ScoreboardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Container(
           padding: EdgeInsets.all(4.0),

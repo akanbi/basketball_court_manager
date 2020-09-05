@@ -9,7 +9,8 @@ class ScoreboardButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      RaisedButton.icon( elevation: 4.0,
+      RaisedButton.icon(
+        elevation: 4.0,
         icon: Icon(Icons.score),
         color: Theme.of(context).primaryColor,
         onPressed: () {},
