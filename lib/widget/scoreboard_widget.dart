@@ -3,10 +3,25 @@ import 'package:basketball_court_manager/widget/scoreboard_button_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class ScoreboardWidget extends StatelessWidget {
-  Scoreboard scoreboard;
+class ScoreboardWidget extends StatefulWidget {
+  final Scoreboard scoreboard;
 
   ScoreboardWidget(this.scoreboard);
+
+  @override
+  State<StatefulWidget> createState() => ScoreboardState();
+
+}
+
+class ScoreboardState extends State<ScoreboardWidget> {
+  int point = 0;
+
+  updateScore() {
+    setState(() {
+      point = widget.scoreboard.point;
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +31,7 @@ class ScoreboardWidget extends StatelessWidget {
           padding: EdgeInsets.all(4.0),
           child: Center(
             child: Text(
-              scoreboard.point.toString(),
+              point.toString(),
               style: TextStyle(color: Colors.grey, fontSize: 50),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
@@ -29,13 +44,11 @@ class ScoreboardWidget extends StatelessWidget {
               child: ScoreboardButtonWidget(
                   "3 Points",
                   3,
-                  scoreboard: scoreboard,
+                  scoreboard: widget.scoreboard,
                   onChanged: (value) {
-                      scoreboard.point = value;
-                      int score = scoreboard.point;
-                      print("Value recebido: $value");
-                      print("SCORE: $score");
-                    })
+                    widget.scoreboard.point = value;
+                    updateScore();
+                  })
               ),
             ),
         Container(
@@ -44,13 +57,10 @@ class ScoreboardWidget extends StatelessWidget {
               child: ScoreboardButtonWidget(
                   "2 Points",
                   2,
-                  scoreboard: scoreboard,
+                  scoreboard: widget.scoreboard,
                   onChanged: (value) {
-                    scoreboard.point = value;
-                    scoreboard.point = value;
-                    int score = scoreboard.point;
-                    print("Value recebido: $value");
-                    print("SCORE: $score");
+                    widget.scoreboard.point = value;
+                    updateScore();
                   }),
             )),
         Container(
@@ -59,13 +69,10 @@ class ScoreboardWidget extends StatelessWidget {
               child: ScoreboardButtonWidget(
                   "Free throw",
                   1,
-                  scoreboard: scoreboard,
+                  scoreboard: widget.scoreboard,
                   onChanged: (value) {
-                    scoreboard.point = value;
-                    scoreboard.point = value;
-                    int score = scoreboard.point;
-                    print("Value recebido: $value");
-                    print("SCORE: $score");
+                    widget.scoreboard.point = value;
+                    updateScore();
                   },
               ),
             )),
