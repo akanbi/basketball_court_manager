@@ -1,6 +1,7 @@
 class Scoreboard {
   int point;
+  String teamDescription;
 
-  Scoreboard(this.point);
+  Scoreboard(this.point, this.teamDescription);
 
 }

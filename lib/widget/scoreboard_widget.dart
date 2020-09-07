@@ -22,11 +22,21 @@ class ScoreboardState extends State<ScoreboardWidget> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(4.0),
+          child: Center(
+            child: Text(
+              widget.scoreboard.teamDescription,
+              style: TextStyle(color: Colors.black, fontSize: 20),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ),
         Container(
           padding: EdgeInsets.all(4.0),
           child: Center(

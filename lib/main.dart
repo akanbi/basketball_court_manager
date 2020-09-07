@@ -1,6 +1,6 @@
-import 'package:basketball_court_manager/model/Scoreboard.dart';
-import 'package:basketball_court_manager/widget/scoreboard_widget.dart';
+import 'package:basketball_court_manager/widget/home_screen_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:splashscreen/splashscreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,32 +13,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: BasketballCourtManagerHome('BBall Court Manager'),
+      home: BasketballCourtManagerSplashScreen(),
     );
   }
 }
 
-class BasketballCourtManagerHome extends StatelessWidget {
-  final String title;
-  Scoreboard scoreboardOne = new Scoreboard(0);
-  Scoreboard scoreboardTwo = new Scoreboard(0);
-
-  BasketballCourtManagerHome(this.title);
-
+class BasketballCourtManagerSplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text(title),
+    return Container(
+      child:
+        SplashScreen(
+          seconds: 3,
+          navigateAfterSeconds: BasketballCourtManagerHome("BBall Court Manager"),
+          loaderColor: Colors.transparent,
+          imageBackground: AssetImage("assets/BasketballSplash.png"),
         ),
-        body: SafeArea(
-          child: Row(
-            children: [
-              Expanded(child: ScoreboardWidget(scoreboardOne)),
-              Expanded(child: ScoreboardWidget(scoreboardTwo))
-            ],
-          ),
-        )
     );
   }
+
 }
